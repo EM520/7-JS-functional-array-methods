@@ -34,14 +34,10 @@ let priceItems = items.filter(function(item){
 
 let priceItemsList = priceItems.map(function(item) {
 
-    return `
-    <li> ${item.title} </li>
-    `
+    return `<li> ${item.title} </li> `
 }).join('')
 
 
-    
-   
     document.querySelector('#answer2').innerHTML = `${priceItemsList}`
 
 
@@ -52,8 +48,13 @@ let priceItemsList = priceItems.map(function(item) {
 //         return (item.price>14 && item.price<18)
     
 //     })
+// console.log(priceItems)
 
-//     document.querySelector('#answer2').innerHTML = `${priceItems.title}`
+// const newList = priceItems.map(function(item){
+//     return `<li> ${item.title} </li>`
+// })
+
+//    document.querySelector('#answer2').innerHTML = `${newList}`
     
 
 // --------------------------------------------------------------------------------------
@@ -89,8 +90,7 @@ let woodItems = items.filter(function(item) {
 //console.log(woodItems)
 
  let woodItemsList = woodItems.map(function(item) {
-    return  `
-    <li>${item.title} is made of wood.</li>
+    return  `<li>${item.title} is made of wood.</li>
     `
 }).join('')
 
@@ -110,10 +110,24 @@ let numWoodItems = items.filter(function(item){
 })
  //console.log(numWoodItems)
 
+//  const newItemMat = numWoodItems.map(function(x){
+//      const inner = x.materials.map(function(y){
+//          return `${y} \n`
+//      })
+//      return   inner.join('')
+//    })
+
+//console.log(newItemMat)
+
+
 let numWoodItemsList = numWoodItems.map(function(item) {
-    return `
-    <li> ${item.title} has ${item.materials.length} materials:</br> ${item.materials} </li>
-    `
+
+    const inner = item.materials.map(function(y){
+        return `${y} \n`
+    }).join('')
+    
+    return `<li> ${item.title} has ${item.materials.length} materials: </br>
+${inner}</li>`
 }).join('')
 
 document.querySelector('#answer5').innerHTML = `${numWoodItemsList}`
